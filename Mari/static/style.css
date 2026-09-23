@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fbfbfb;
+    color: #ad4601;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background: #750000f8;
+    padding: 100px;
+    border-radius: 100px;
+    box-shadow: 0 100px 100px rgb(190, 131, 2);
+}
+
+h1 {
+    color: #ff0000;
+    margin-bottom: 50px;
+}
+
+p {
+    font-size: 18px;
+    color: #ffd900;
+}
+
+
+
+/* Estilos principales del botón */
+.btn-romantic {
+    position: relative;
+    padding: 15px 35px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(45deg, #ff4b2b, #ff416c);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4);
+    outline: none;
+    transition: transform 0.1s;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Animación de presión en el botón */
+.btn-romantic:active {
+    transform: scale(0.95);
+}
+
+/* Capas decorativas usando texto nativo (Solución definitiva para emojis) */
+.btn-romantic::before,
+.btn-romantic::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    font-size: 24px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: -1;
+}
+
+/* Grupo 1: Distribución de flores amarillas y corazones */
+.btn-romantic::before {
+    content: 'TE❤️AMO ';
+    word-spacing: 150px; /* Separa los emojis entre sí */
+}
+
+/* Grupo 2: Distribución alternativa */
+.btn-romantic::after {
+    content: '❤️  🌻 💛';
+    word-spacing: 100px;
+}
+
+/* Efecto de explosión cuando se toca o se hace clic (:active) */
+.btn-romantic:active::before {
+    opacity: 1;
+    transform: translate(-50%, -130%) scale(1.4); /* Salen disparados hacia arriba */
+    text-shadow: -60px 40px 0px rgb(251, 170, 8), 60px 50px 0px rgb(255, 221, 0);
+}
+
+.btn-romantic:active::after {
+    opacity: 100;
+    transform: translate(-50%, 40%) scale(1.4); /* Salen disparados hacia abajo */
+}
